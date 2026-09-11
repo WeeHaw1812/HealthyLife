@@ -2,234 +2,144 @@ const USERS_STORAGE_KEY = "healthyUsers";
 const CURRENT_USER_STORAGE_KEY = "healthyCurrentUser";
 
 function getUsers() {
-    const storedUsers = localStorage.getItem(USERS_STORAGE_KEY);
+  const storedUsers = localStorage.getItem(USERS_STORAGE_KEY);
 
-    if (storedUsers) {
-        try {
-            const users = JSON.parse(storedUsers);
-            return Array.isArray(users) ? users : [];
-        } catch (error) {
-            return [];
-        }
+  if (storedUsers) {
+    try {
+      const users = JSON.parse(storedUsers);
+      return Array.isArray(users) ? users : [];
+    } catch (error) {
+      return [];
     }
+  }
 
-    // Migrate the old single-account format without losing the existing user.
-    const oldUser = localStorage.getItem("healthyUser");
+  // Migrate the old single-account format without losing the existing user.
+  const oldUser = localStorage.getItem("healthyUser");
 
-    if (oldUser) {
-        try {
-            const user = JSON.parse(oldUser);
-            const users = user ? [user] : [];
-            localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
-            return users;
-        } catch (error) {
-            return [];
-        }
+  if (oldUser) {
+    try {
+      const user = JSON.parse(oldUser);
+      const users = user ? [user] : [];
+      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
+      return users;
+    } catch (error) {
+      return [];
     }
+  }
 
-    return [];
+  return [];
 }
 
 function getCurrentUser() {
-    const currentEmail = localStorage.getItem(CURRENT_USER_STORAGE_KEY);
-    return getUsers().find(user => user.email === currentEmail) || null;
+  const currentEmail = localStorage.getItem(CURRENT_USER_STORAGE_KEY);
+  return getUsers().find((user) => user.email === currentEmail) || null;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  const registerForm = document.getElementById("registerForm");
 
-    const registerForm =
-        document.getElementById("registerForm");
+  const loginForm = document.getElementById("loginForm");
 
-    const loginForm =
-        document.getElementById("loginForm");
+  // ================= ĐĂNG KÝ =================
 
+  if (registerForm) {
+    registerForm.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    // ================= ĐĂNG KÝ =================
+      const name = document.getElementById("registerName").value.trim();
 
-    if (registerForm) {
+      const email = document.getElementById("registerEmail").value.trim();
 
-        registerForm.addEventListener(
-            "submit",
-            function (event) {
+      const password = document.getElementById("registerPassword").value;
 
-                event.preventDefault();
+      const confirm = document.getElementById("registerConfirm").value;
 
-                const name =
-                    document.getElementById(
-                        "registerName"
-                    ).value.trim();
+      const message = document.getElementById("registerMessage");
 
-                const email =
-                    document.getElementById(
-                        "registerEmail"
-                    ).value.trim();
+      if (password !== confirm) {
+        message.textContent = "Mật khẩu nhập lại không khớp.";
 
-                const password =
-                    document.getElementById(
-                        "registerPassword"
-                    ).value;
+        return;
+      }
 
-                const confirm =
-                    document.getElementById(
-                        "registerConfirm"
-                    ).value;
+      const user = {
+        name,
+        email,
+        password,
+      };
 
-                const message =
-                    document.getElementById(
-                        "registerMessage"
-                    );
+      const users = getUsers();
+      const emailExists = users.some(
+        (existingUser) => existingUser.email.toLowerCase() === email.toLowerCase(),
+      );
 
+      if (emailExists) {
+        message.textContent = "Email này đã được đăng ký.";
+        return;
+      }
 
-                if (password !== confirm) {
+      users.push(user);
+      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
 
-                    message.textContent =
-                        "Mật khẩu nhập lại không khớp.";
+      message.textContent = "Đăng ký thành công!";
 
-                    return;
-                }
+      setTimeout(function () {
+        window.location.href = "login.html";
+      }, 1000);
+    });
+  }
 
+  // ================= ĐĂNG NHẬP =================
 
-                const user = {
-                    name,
-                    email,
-                    password
-                };
+  if (loginForm) {
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-                const users = getUsers();
-                const emailExists = users.some(
-                    existingUser => existingUser.email.toLowerCase() === email.toLowerCase()
-                );
+      const email = document.getElementById("loginEmail").value.trim();
 
-                if (emailExists) {
-                    message.textContent = "Email này đã được đăng ký.";
-                    return;
-                }
+      const password = document.getElementById("loginPassword").value;
 
-                users.push(user);
-                localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
+      const user = getUsers().find(
+        (existingUser) =>
+          existingUser.email.toLowerCase() === email.toLowerCase() &&
+          existingUser.password === password,
+      );
 
+      const message = document.getElementById("loginMessage");
 
-                message.textContent =
-                    "Đăng ký thành công!";
+      if (user && user.email === email && user.password === password) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem(CURRENT_USER_STORAGE_KEY, user.email);
 
+        window.location.href = "dashboard.html";
+      } else {
+        message.textContent = "Email hoặc mật khẩu không đúng.";
+      }
+    });
+  }
 
-                setTimeout(function () {
+  // ================= ĐĂNG XUẤT =================
 
-                    window.location.href =
-                        "login.html";
+  const logoutBtn = document.getElementById("logoutBtn");
 
-                }, 1000);
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem(CURRENT_USER_STORAGE_KEY);
 
-            }
-        );
+      window.location.href = "../index.html";
+    });
+  }
+
+  // ================= DASHBOARD =================
+
+  const userName = document.getElementById("userName");
+
+  if (userName) {
+    const user = getCurrentUser();
+
+    if (user) {
+      userName.textContent = user.name;
     }
-
-
-    // ================= ĐĂNG NHẬP =================
-
-    if (loginForm) {
-
-        loginForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-                const email =
-                    document.getElementById(
-                        "loginEmail"
-                    ).value.trim();
-
-                const password =
-                    document.getElementById(
-                        "loginPassword"
-                    ).value;
-
-
-                const user = getUsers().find(
-                    existingUser =>
-                        existingUser.email.toLowerCase() === email.toLowerCase() &&
-                        existingUser.password === password
-                );
-
-
-                const message =
-                    document.getElementById(
-                        "loginMessage"
-                    );
-
-
-                if (
-                    user &&
-                    user.email === email &&
-                    user.password === password
-                ) {
-
-                    localStorage.setItem("loggedIn", "true");
-                    localStorage.setItem(CURRENT_USER_STORAGE_KEY, user.email);
-
-
-                    window.location.href =
-                        "dashboard.html";
-
-                } else {
-
-                    message.textContent =
-                        "Email hoặc mật khẩu không đúng.";
-
-                }
-
-            }
-        );
-    }
-
-
-    // ================= ĐĂNG XUẤT =================
-
-    const logoutBtn =
-        document.getElementById(
-            "logoutBtn"
-        );
-
-
-    if (logoutBtn) {
-
-        logoutBtn.addEventListener(
-            "click",
-            function () {
-
-                localStorage.removeItem("loggedIn");
-                localStorage.removeItem(CURRENT_USER_STORAGE_KEY);
-
-                window.location.href =
-                    "index.html";
-
-            }
-        );
-
-    }
-
-
-    // ================= DASHBOARD =================
-
-    const userName =
-        document.getElementById(
-            "userName"
-        );
-
-
-    if (userName) {
-
-        const user = getCurrentUser();
-
-
-        if (user) {
-
-            userName.textContent =
-                user.name;
-
-        }
-
-    }
-
+  }
 });

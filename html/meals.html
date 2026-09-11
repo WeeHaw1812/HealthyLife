@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Món ăn Healthy - HealthyLife</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+
+<body>
+
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="dashboard.html" class="logo">
+                🥗 HealthyLife
+            </a>
+
+            <nav>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="bmi.html">
+                    BMI
+                </a>
+
+                <a href="meals.html">
+                    Món ăn
+                </a>
+
+                <a href="plan.html">
+                    Kế hoạch
+                </a>
+
+                <a href="statistics.html">
+                    Thống kê
+                </a>
+                <a href="favorite.html">
+                    Yêu thích
+                </a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>HEALTHY FOOD</span>
+
+                    <h1>
+                        Món ăn lành mạnh
+                    </h1>
+
+                    <p>
+                        Khám phá món ăn, lượng calo,
+                        nguyên liệu và cách làm.
+                    </p>
+
+                </div>
+
+
+                <div class="meal-toolbar">
+
+                    <input type="text" id="searchMeal" placeholder="🔍 Tìm món ăn...">
+
+
+                    <select id="mealType">
+
+                        <option value="all">
+                            Tất cả
+                        </option>
+
+                        <option value="Bữa sáng">
+                            Bữa sáng
+                        </option>
+
+                        <option value="Bữa trưa">
+                            Bữa trưa
+                        </option>
+
+                        <option value="Bữa tối">
+                            Bữa tối
+                        </option>
+
+                        <option value="Bữa phụ">
+                            Bữa phụ
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div id="mealGrid" class="meal-grid"></div>
+
+
+                <div class="show-more">
+
+                    <button id="showMoreBtn" class="btn btn-primary">
+                        Xem thêm món
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="/data/meals.js"></script>
+    <script src="/js/favorite.js"></script>
+    <script src="/js/meals.js"></script>
+
+</body>
+
+</html>

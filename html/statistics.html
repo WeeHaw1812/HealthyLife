@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thống kê - HealthyLife</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+
+<body>
+
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="dashboard.html" class="logo">
+                🥗 HealthyLife
+            </a>
+
+            <nav>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="bmi.html">
+                    BMI
+                </a>
+
+                <a href="meals.html">
+                    Món ăn
+                </a>
+
+                <a href="plan.html">
+                    Kế hoạch
+                </a>
+
+                <a href="statistics.html">
+                    Thống kê
+                </a>
+                <a href="favorite.html">
+                    Yêu thích
+                </a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>STATISTICS</span>
+
+                    <h1>
+                        📊 Thống kê sức khỏe
+                    </h1>
+
+                    <p>
+                        Theo dõi quá trình ăn uống của bạn.
+                    </p>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            🔥
+                        </span>
+
+                        <strong id="totalCalories">
+                            0
+                        </strong>
+
+                        <small>
+                            Calo mục tiêu
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            ⚖️
+                        </span>
+
+                        <strong id="currentBMI">
+                            0.0
+                        </strong>
+
+                        <small>
+                            BMI
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            ❤️
+                        </span>
+
+                        <strong id="totalFavorites">
+                            0
+                        </strong>
+
+                        <small>
+                            Món yêu thích
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>
+                            📅
+                        </span>
+
+                        <strong id="planWeeks">
+                            0
+                        </strong>
+
+                        <small>
+                            Tuần duy trì
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card chart-card">
+
+                    <h2>
+                        Lượng calo trong tuần
+                    </h2>
+
+                    <canvas id="calorieChart" height="300"></canvas>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h2>
+                        📈 Tiến trình
+                    </h2>
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+
+                            <span>
+                                Chế độ ăn
+                            </span>
+
+                            <strong>
+                                75%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div style="width:75%"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+
+                            <span>
+                                Uống nước
+                            </span>
+
+                            <strong>
+                                60%
+                            </strong>
+
+                        </div>
+
+                        <div class="progress">
+
+                            <div style="width:60%"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/statistics.js"></script>
+
+</body>
+
+</html>

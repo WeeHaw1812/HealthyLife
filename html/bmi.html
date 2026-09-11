@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tính BMI - HealthyLife</title>
+
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" href="/css/responsive.css">
+
+</head>
+
+<body>
+
+
+    <header class="header">
+
+        <div class="container nav">
+
+            <a href="dashboard.html" class="logo">
+                🥗 HealthyLife
+            </a>
+
+            <nav>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="bmi.html">
+                    BMI
+                </a>
+
+                <a href="meals.html">
+                    Món ăn
+                </a>
+
+                <a href="plan.html">
+                    Kế hoạch
+                </a>
+
+                <a href="statistics.html">
+                    Thống kê
+                </a>
+                <a href="favorite.html">
+                    Yêu thích
+                </a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>BMI & CALORIES</span>
+
+                    <h1>
+                        Tính BMI và calo
+                    </h1>
+
+                    <p>
+                        Nhập thông tin cơ bản để tính
+                        chỉ số BMI và nhu cầu năng lượng.
+                    </p>
+
+                </div>
+
+
+                <div class="bmi-page-grid">
+
+
+                    <div class="card">
+
+                        <form id="bmiForm">
+
+                            <div class="form-group">
+
+                                <label>
+                                    Tuổi
+                                </label>
+
+                                <input type="number" id="age" min="1" placeholder="Ví dụ: 18"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Cân nặng (kg)
+                                </label>
+
+                                <input type="number" id="weight" min="1" step="0.1"
+                                    placeholder="Ví dụ: 60" required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Chiều cao (cm)
+                                </label>
+
+                                <input type="number" id="height" min="1" placeholder="Ví dụ: 165"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Mức độ vận động
+                                </label>
+
+                                <select id="activity">
+
+                                    <option value="1.2">
+                                        Ít vận động
+                                    </option>
+
+                                    <option value="1.375">
+                                        Vận động nhẹ
+                                    </option>
+
+                                    <option value="1.55">
+                                        Vận động vừa
+                                    </option>
+
+                                    <option value="1.725">
+                                        Vận động nhiều
+                                    </option>
+
+                                    <option value="1.9">
+                                        Rất nhiều
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary full">
+                                🧮 Tính toán
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <div class="card result-card">
+
+                        <span class="result-label">
+                            KẾT QUẢ
+                        </span>
+
+                        <div class="result-number">
+                            <span id="bmiResult">
+                                0.0
+                            </span>
+                        </div>
+
+                        <h3 id="bmiStatus">
+                            Chưa tính
+                        </h3>
+
+
+                        <div class="result-boxes">
+
+                            <div>
+
+                                <small>
+                                    🔥 Calo cần/ngày
+                                </small>
+
+                                <strong id="calorieResult">
+                                    0 kcal
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    📅 Thời gian duy trì
+                                </small>
+
+                                <strong id="durationResult">
+                                    4 - 8 tuần
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/calories.js"></script>
+    <script src="/js/bmi.js"></script>
+
+</body>
+
+</html>

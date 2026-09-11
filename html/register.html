@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Đăng ký - HealthyLife</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/styles.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/login.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/responsive.css"
+    >
+
+</head>
+
+<body class="auth-page">
+
+
+<div class="auth-container">
+
+
+    <div class="auth-brand">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            🥗 HealthyLife
+        </a>
+
+        <h1>
+            Bắt đầu hành trình khỏe mạnh!
+        </h1>
+
+        <p>
+            Tạo tài khoản để quản lý chế độ
+            ăn uống của bạn.
+        </p>
+
+    </div>
+
+
+    <div class="auth-card">
+
+        <h2>
+            Tạo tài khoản
+        </h2>
+
+        <p class="auth-description">
+            Điền thông tin bên dưới.
+        </p>
+
+
+        <form id="registerForm">
+
+            <div class="form-group">
+
+                <label>
+                    Họ và tên
+                </label>
+
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Nguyễn Văn A"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="example@gmail.com"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Mật khẩu
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Tối thiểu 6 ký tự"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Nhập lại mật khẩu
+                </label>
+
+                <input
+                    type="password"
+                    id="registerConfirm"
+                    placeholder="Nhập lại mật khẩu"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn btn-primary full"
+            >
+                Đăng ký
+            </button>
+
+        </form>
+
+
+        <p
+            id="registerMessage"
+            class="form-message"
+        ></p>
+
+
+        <div class="auth-bottom">
+
+            Đã có tài khoản?
+
+            <a href="login.html">
+                Đăng nhập
+            </a>
+
+        </div>
+
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Về trang chủ
+        </a>
+
+    </div>
+
+</div>
+
+
+<script src="/js/auth.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+@media (max-width: 1000px) {
+
+    nav {
+        display: none;
+    }
+
+    .feature-grid,
+    .stats-grid,
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .meal-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .hero-grid,
+    .bmi-page-grid,
+    .plan-grid,
+    .meal-detail-grid,
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 55px 0;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .feature-grid,
+    .stats-grid,
+    .dashboard-grid,
+    .quick-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .meal-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .auth-brand {
+        display: none;
+    }
+
+    .meal-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .nav-buttons .btn-outline {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .feature-grid,
+    .stats-grid,
+    .dashboard-grid,
+    .quick-grid,
+    .meal-grid,
+    .favorite-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-boxes {
+        grid-template-columns: 1fr;
+    }
+
+    .cta,
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .auth-card {
+        padding: 25px;
+    }
+
+}

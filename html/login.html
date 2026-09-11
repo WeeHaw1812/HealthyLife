@@ -5,142 +5,107 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Đăng nhập - HealthyLife</title>
 
-    <link
-        rel="stylesheet"
-        href="/css/styles.css"
-    >
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 
-    <link
-        rel="stylesheet"
-        href="/css/login.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="/css/responsive.css"
-    >
+    <link rel="stylesheet" href="../css/responsive.css">
 
 </head>
 
 <body class="auth-page">
 
 
-<div class="auth-container">
+    <div class="auth-container">
 
 
-    <div class="auth-brand">
+        <div class="auth-brand">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
-            🥗 HealthyLife
-        </a>
-
-        <h1>
-            Chào mừng trở lại!
-        </h1>
-
-        <p>
-            Đăng nhập để tiếp tục theo dõi
-            chế độ ăn uống của bạn.
-        </p>
-
-    </div>
-
-
-    <div class="auth-card">
-
-        <h2>
-            Đăng nhập
-        </h2>
-
-        <p class="auth-description">
-            Nhập thông tin tài khoản của bạn.
-        </p>
-
-
-        <form id="loginForm">
-
-            <div class="form-group">
-
-                <label>
-                    Email
-                </label>
-
-                <input
-                    type="email"
-                    id="loginEmail"
-                    placeholder="example@gmail.com"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Mật khẩu
-                </label>
-
-                <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="Nhập mật khẩu"
-                    required
-                >
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="btn btn-primary full"
-            >
-                Đăng nhập
-            </button>
-
-        </form>
-
-
-        <p
-            id="loginMessage"
-            class="form-message"
-        ></p>
-
-
-        <div class="auth-bottom">
-
-            Chưa có tài khoản?
-
-            <a href="register.html">
-                Đăng ký
+            <a href="index.html" class="logo">
+                🥗 HealthyLife
             </a>
+
+            <h1>
+                Chào mừng trở lại!
+            </h1>
+
+            <p>
+                Đăng nhập để tiếp tục theo dõi
+                chế độ ăn uống của bạn.
+            </p>
 
         </div>
 
 
-        <a
-            href="index.html"
-            class="back-home"
-        >
-            ← Về trang chủ
-        </a>
+        <div class="auth-card">
+
+            <h2>
+                Đăng nhập
+            </h2>
+
+            <p class="auth-description">
+                Nhập thông tin tài khoản của bạn.
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input type="email" id="loginEmail" placeholder="example@gmail.com" required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Mật khẩu
+                    </label>
+
+                    <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" required>
+
+                </div>
+
+
+                <button type="submit" class="btn btn-primary full">
+                    Đăng nhập
+                </button>
+
+            </form>
+
+
+            <p id="loginMessage" class="form-message"></p>
+
+
+            <div class="auth-bottom">
+
+                Chưa có tài khoản?
+
+                <a href="register.html">
+                    Đăng ký
+                </a>
+
+            </div>
+
+
+            <a href="index.html" class="back-home">
+                ← Về trang chủ
+            </a>
+
+        </div>
 
     </div>
 
-</div>
 
-
-<script src="/js/auth.js"></script>
+    <script src="../js/auth.js"></script>
 
 </body>
 
